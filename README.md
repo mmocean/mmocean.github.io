@@ -1,2 +1,5 @@
 # mmocean.github.io
-mmocean's blog
+
+Hello, this is mmocean's blog.
+
+Welcome!
