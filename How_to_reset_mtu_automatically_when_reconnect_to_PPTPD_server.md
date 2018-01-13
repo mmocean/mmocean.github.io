@@ -40,8 +40,12 @@ do
 	#echo $ether_list
 	for ether in $ether_list
 	do
-	    #echo $ether
-		ifconfig $ether mtu 1496 >/dev/null 2>&1
+		mtu=$(ifconfig|grep $ether|grep mtu|awk -F "mtu" '{print $2}')
+		if [ $mtu -ne 1496 ];then
+	    		echo $ether
+	    		echo $mtu
+			ifconfig $ether mtu 1496 >/dev/null 2>&1
+		fi
 	done
 	sleep 10
 done
